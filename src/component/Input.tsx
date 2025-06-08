@@ -21,7 +21,7 @@ const Input = (props: Props) => {
   return (
     <div className="flex flex-col gap-[4px] w-full max-w-[520px]">
       <label htmlFor={props.htmlfor}>{props.label}</label>
-      <div className="flex h-[48px] w-full bg-[#C1C7CD] border-b border-b-[#697077] p-[24px] items-center justify-between">
+      <div className="flex h-[48px] w-full bg-white border-b border-b-[#697077] p-[24px] items-center justify-between">
         <input type={type} value={props.value} placeholder={props.placeholder} className="w-full" />
         {props.type === "password" ? (
           <button type="button" onClick={onClick}>

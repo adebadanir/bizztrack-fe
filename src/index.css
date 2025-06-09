@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+@theme{
+  --color-approved-100: #25A249;
+  --color-pending-100: #DA1E28;
+}
+
 input {
   border: none;
   outline: none;
@@ -7,3 +12,4 @@ input {
 button {
   cursor: pointer;
 }
+

@@ -7,7 +7,7 @@ type Props = {
   label?: string;
   htmlfor?: string;
   placeholder?: string;
-  value?: string;
+  value?: string | number;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
@@ -22,7 +22,7 @@ const Input = (props: Props) => {
     <div className="flex flex-col gap-[4px] w-full max-w-[520px]">
       <label htmlFor={props.htmlfor}>{props.label}</label>
       <div className="flex h-[48px] w-full bg-white border-b border-b-[#697077] p-[24px] items-center justify-between">
-        <input type={type} value={props.value} placeholder={props.placeholder} className="w-full" />
+        <input type={type} value={props.value} onChange={props.onChange} placeholder={props.placeholder} className="w-full" />
         {props.type === "password" ? (
           <button type="button" onClick={onClick}>
             {isClicked ? <FaEyeSlash /> : <FaEye />}

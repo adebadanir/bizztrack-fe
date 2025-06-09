@@ -1,5 +1,5 @@
-import { useState } from "react";
-import Dropdown from "./Dropdown";
+import { useState } from 'react';
+import Dropdown from './Dropdown';
 
 type Props = {
   fullName?: string;
@@ -20,8 +20,15 @@ const Navbar = (props: Props) => {
             <div className="">{props.fullName}</div>
             <div className="text-[#6F6F6F] text-sm">{props.department}</div>
           </div>
-          <button onClick={toggleMenu} className="w-[40px] h-[40px] bg-[#C1C7CD] rounded-full flex items-center justify-center">
-            <img src="/path/to/profile-pic.jpg" alt="Profile" className="w-full h-full rounded-full" />
+          <button
+            onClick={toggleMenu}
+            className="w-[40px] h-[40px] bg-[#C1C7CD] rounded-full flex items-center justify-center"
+          >
+            <img
+              src="/path/to/profile-pic.jpg"
+              alt="Profile"
+              className="w-full h-full rounded-full"
+            />
           </button>
         </div>
       </nav>

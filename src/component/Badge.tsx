@@ -1,17 +1,18 @@
-interface statusBadgeProps {
-  type: 'Approved' | 'Pending Manager' | 'Pending Finance';
+interface badgeProps {
+  type: 'Approved' | 'Pending Manager' | 'Pending Finance' | 'Badge';
 }
 
-function StatusBadge({ type }: statusBadgeProps) {
+function Badge({ type }: badgeProps) {
   const styleMap: Record<string, string> = {
     Approved: 'bg-approved-100 text-white  rounded-full px-4 py-2 w-fit',
     'Pending Manager':
       'bg-pending-100 text-white  rounded-full px-4 py-2 w-fit ',
     'Pending Finance':
       'bg-pending-100 text-white  rounded-full px-4 py-2 w-fit ',
+    Badge: 'bg-gray-100 text-gray-800 rounded-full px-4 py-2 w-fit',
   };
 
-  console.log(`Rendering StatusBadge with type: ${type}`);
+  console.log(`Rendering Badge with type: ${type}`);
 
   return (
     <div className={`${styleMap[type]}`}>
@@ -20,4 +21,4 @@ function StatusBadge({ type }: statusBadgeProps) {
   );
 }
 
-export default StatusBadge;
+export default Badge;

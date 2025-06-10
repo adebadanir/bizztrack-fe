@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { CgAddR } from 'react-icons/cg';
 import { FaCircleMinus } from 'react-icons/fa6';
 
-type Props = { onClick?: () => void };
+type Props = { onClick?: () => void, type: string };
 
 interface DetailItem {
   id: string; // Unique ID for each detail item to help with React key prop
@@ -88,7 +88,7 @@ const FormEditExpense = (props: Props) => {
               <MdClose onClick={props.onClick} />
             </button>
           </div>
-          <h3 className="font-semibold text-3xl text-left">Edit Form</h3>
+          <h3 className="font-semibold text-3xl text-left">{props.type} Form</h3>
           <Input
             label="Purpose"
             placeholder="Purpose"
@@ -160,7 +160,7 @@ const FormEditExpense = (props: Props) => {
             type="text" // Keep as text, as it's not directly editable by user
             onChange={() => {}} // Make it read-only by providing an empty onChange
           />
-          <button className="bg-blue-500 text-white font-medium px-[4px] py-[8px] w-[50%]">
+          <button className="bg-blue-500 text-white font-medium px-8 py-[8px] ">
             Submit
           </button>
         </form>

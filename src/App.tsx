@@ -3,6 +3,9 @@ import Login from './page/Login';
 import User from './page/User';
 import Dashboard from './page/Dashboard';
 import Expense from './page/Expense';
+import ApprovalExpense from './page/ApprovalExpense';
+import ApprovalReport from './page/ApprovalReport';
+import Department from './page/Department';
 
 function App() {
   return (
@@ -12,6 +15,9 @@ function App() {
         <Route path="/user" element={<User />} />
         <Route path="/login" element={<Login />} />
         <Route path="/expense" element={<Expense />} />
+        <Route path="/approval-expense" element={<ApprovalExpense />} />
+        <Route path="/approval-report" element={<ApprovalReport />} />
+        <Route path="/department" element={<Department />} />
       </Routes>
     </BrowserRouter>
   );

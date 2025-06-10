@@ -1,30 +1,21 @@
-import { MdOutlineAdd, MdOutlineSearch } from 'react-icons/md';
-import { FaFilter } from 'react-icons/fa';
+import { MdOutlineSearch } from 'react-icons/md';
 import Main from '../layout/Main';
-import { FaEye, FaTrashAlt } from 'react-icons/fa';
-import { useState } from 'react';
+import { FaCheck, FaEye, FaFilter, FaTrashAlt } from 'react-icons/fa';
 import Badge from '../component/Badge';
-import FormCreateExpense from '../component/FormCreateExpense';
+import { useState } from 'react';
 import FormEditExpense from '../component/FormEditExpense';
 
-function Expense() {
-  const [isAddShow, setIsAddShow] = useState(false);
+function ApprovalExpense() {
   const [isEditShow, setIsEditShow] = useState(false);
-
-  const handleAddClick = () => {
-    setIsAddShow(!isAddShow);
-    setIsEditShow(false);
-  };
 
   const handleEditClick = () => {
     setIsEditShow(!isEditShow);
-    setIsAddShow(false);
   };
 
   return (
     <Main>
       <div className="w-full h-full bg-white flex flex-col p-[8px] gap-[16px]">
-        <h2 className="font-bold text-2xl">Create Expenses</h2>
+        <h2 className="font-bold text-2xl">Approval Expenses</h2>
         <div className="flex gap-[4px] w-full items-center  ">
           <div className="flex max-w-[120px] h-full w-full bg-[#F2F4F8] border-b border-b-[#697077] p-[8px] gap-[8px] items-center justify-between">
             <MdOutlineSearch />
@@ -32,13 +23,6 @@ function Expense() {
           </div>
           <button className="w-full h-full flex justify-between items-center max-w-fit px-[8px] py-[4px] bg-blue-500 text-white hover:bg-blue-400">
             <FaFilter />
-          </button>
-          <button
-            onClick={handleAddClick}
-            className="w-full h-full flex justify-between items-center max-w-[64px] px-[8px] py-[4px] bg-blue-500 text-white hover:bg-blue-400"
-          >
-            <MdOutlineAdd />
-            Add
           </button>
         </div>
         <table>
@@ -70,6 +54,10 @@ function Expense() {
                 >
                   <FaEye />
                 </button>
+                <button className="text-white bg-green-500 hover:bg-green-400 p-[4px] cursor-pointer">
+                  <FaCheck />
+                </button>
+
                 <button className="text-white bg-red-500 hover:bg-red-400 p-[4px] cursor-pointer">
                   <FaTrashAlt />
                 </button>
@@ -85,10 +73,11 @@ function Expense() {
           <button>{`>`}</button>
         </div>
       </div>
-      {isAddShow && <FormCreateExpense onClick={handleAddClick} />}
-      {isEditShow && <FormEditExpense onClick={handleEditClick} type="Edit" />}
+      {isEditShow && (
+        <FormEditExpense onClick={handleEditClick} type="Detail" />
+      )}
     </Main>
   );
 }
 
-export default Expense;
+export default ApprovalExpense;

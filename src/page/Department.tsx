@@ -1,13 +1,12 @@
 import { MdOutlineAdd, MdOutlineSearch } from 'react-icons/md';
-import { FaFilter } from 'react-icons/fa';
 import Main from '../layout/Main';
-import { FaEye, FaTrashAlt } from 'react-icons/fa';
+import { FaEye, FaFilter, FaTrashAlt } from 'react-icons/fa';
 import { useState } from 'react';
-import Badge from '../component/Badge';
-import FormCreateExpense from '../component/FormCreateExpense';
-import FormEditExpense from '../component/FormEditExpense';
 
-function Expense() {
+import Badge from '../component/Badge';
+import DepatmentDialog from '../component/DepartmentDialog';
+
+const Department = () => {
   const [isAddShow, setIsAddShow] = useState(false);
   const [isEditShow, setIsEditShow] = useState(false);
 
@@ -24,7 +23,7 @@ function Expense() {
   return (
     <Main>
       <div className="w-full h-full bg-white flex flex-col p-[8px] gap-[16px]">
-        <h2 className="font-bold text-2xl">Create Expenses</h2>
+        <h2 className="font-bold text-2xl">Department Management</h2>
         <div className="flex gap-[4px] w-full items-center  ">
           <div className="flex max-w-[120px] h-full w-full bg-[#F2F4F8] border-b border-b-[#697077] p-[8px] gap-[8px] items-center justify-between">
             <MdOutlineSearch />
@@ -44,25 +43,19 @@ function Expense() {
         <table>
           <thead>
             <tr className="bg-[#F2F4F8]">
-              <th className="p-[8px] text-left">Purpose</th>
-              <th className="p-[8px] text-left">Amount</th>
-              <th className="p-[8px] text-left">Request Date</th>
-              <th className="p-[8px] text-left">Description</th>
-              <th className="p-[8px] text-left">Status</th>
-              <th className="p-[8px] text-left">Comment</th>
+              <th className="p-[8px] text-left">Name</th>
+              <th className="p-[8px] text-left">Created At</th>
+              <th className="p-[8px] text-left">Update At</th>
               <th className="p-[8px] text-left">Action</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td className="p-[8px]">Visit PT. A</td>
-              <td className="p-[8px]">20.000.000</td>
+              <td className="p-[8px]">IT</td>
               <td className="p-[8px]">18-05-2025</td>
-              <td className="p-[8px]">Visit canvasing new customer</td>
               <td className="p-[8px]">
-                <Badge type="Pending Manager" />
+                <Badge type="Badge" />
               </td>
-              <td className="p-[8px]"></td>
               <td className="flex h-full p-[8px] gap-[4px] items-center">
                 <button
                   onClick={handleEditClick}
@@ -85,10 +78,10 @@ function Expense() {
           <button>{`>`}</button>
         </div>
       </div>
-      {isAddShow && <FormCreateExpense onClick={handleAddClick} />}
-      {isEditShow && <FormEditExpense onClick={handleEditClick} type="Edit" />}
+      {isAddShow && <DepatmentDialog onClick={handleAddClick} type="Add" />}
+      {isEditShow && <DepatmentDialog onClick={handleEditClick} type="Edit" />}
     </Main>
   );
-}
+};
 
-export default Expense;
+export default Department;

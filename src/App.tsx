@@ -6,6 +6,7 @@ import Expense from './page/Expense';
 import ApprovalExpense from './page/ApprovalExpense';
 import ApprovalReport from './page/ApprovalReport';
 import Department from './page/Department';
+import ReportExpense from './page/ReportExpense';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/approval-expense" element={<ApprovalExpense />} />
         <Route path="/approval-report" element={<ApprovalReport />} />
         <Route path="/department" element={<Department />} />
+        <Route path="/report" element={<ReportExpense />} />
       </Routes>
     </BrowserRouter>
   );
